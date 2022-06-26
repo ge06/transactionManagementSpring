@@ -25,7 +25,7 @@ Sistem Monolit yapıdan Mikroservis mimarisine geçirildiğinde, Customer ve Ord
 Bu durumda iki servis için gerekli olan transactionların ayrı olarak yönetilmesi gerekir. Transaction artık birden çok veritabanında olduğundan, **Distributed Transaction** olarak kabul edilir.
 
 ## Transaction Özellikleri
-Transaction yönetiminde aşagğıdaki konular göz önünde bulundurulmalıdır;
+Transaction yönetiminde aşağıdaki konular göz önünde bulundurulmalıdır;
 
 - Failure recovery (Atomicity, Durability).
 - Concurrency control (Isolation, Consistency).
@@ -56,9 +56,27 @@ Transaction sırasında fiziksel veya işlemsel bir hata olması durumunda siste
 ## Transaction Yönetimi Nedir?
 
 Kullanılan transactionların ne gibi kurallar dahilinde çalışacağı kontrol edilebilir.
-Spring transaction yönetimi için iki yöntem sunar. Programatik ve Deklaratif
+
+## Spring Proxy Kullanımı
+
+Spring, Transactional anotasyonu kullanılmış sınıf veya metodlar için direk çağrı yerine, bir proxy kullanır. Bu transaction mantığı ile iş mantığını birbirinden
+ayırma konusunda yardım eder.
+
+Örneğin aşağıdaki gibi bir yapıya sahip olalım.
+
+![image info](./images/proxy1.png)
+
+AccountService sınıfı için bir çağrı yapıldığında;
+
+![image info](./images/proxy2.png)
+
+Burada araya bir proxy yapısı girer ve gerekli sınıfa veya metoda bu yapı üzerinden ulaşırız.
+
 
 ## Transaction Yönetim Türleri
+
+
+Spring transaction yönetimi için iki yöntem sunar. Programatik ve Deklaratif
 
 ### Programmatic
 
