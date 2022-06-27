@@ -126,6 +126,8 @@ Bu transaction yönetimi şeklinde sahip olduğumuz bazı işlem tipleri vardır
 
 **Propagation**
 
+Transaction başladıktan sonraki davranışları ele aldığımız özelliktir. Bu tanımlamaya göre sonraki transaction davranışı belirlenir.
+
 - **REQUIRED Propagation**
 
   REQUIRED, varsayılan propagation tekniğidir. Spring, aktif bir transaction olup olmadığını kontrol eder ve yoksa yeni bir tane oluşturur. Aksi takdirde, işlemler etkin olan transactiona eklenir:
@@ -192,6 +194,8 @@ public void neverExample(String user) {
 ---
 
 **Isolation**
+
+Her bir transactiondaki veriyi manipule etmek amacıyla kullanılır.
 
 - **READ_UNCOMMITTED Isolation**
 
